@@ -1,4 +1,4 @@
-VILLE:pasi viheraho
-TUUKKA:keitetty ankka
+VILLE:pasiviheraho
+TUUKKA:keitettyankka
 OSKU:urmomgay
 mine:hitlerdidnothingwrong
