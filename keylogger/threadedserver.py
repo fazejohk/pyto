@@ -26,7 +26,12 @@ while not quitting:
             quitting = True
         if "Online" in str(data):
             for client in clients:
-                s.sendto(str(addr), client)
+                print str(clients)
+                s.sendto(str(addr) + str(clients), client)
+        if "help" in str(data):
+            for client in clients:
+                print "Commands: Online"
+                s.sendto("Commands:\n Online=Shows all the people that are online\nq=Quits", client)
 
         if addr not in clients:
             clients.append(addr)
