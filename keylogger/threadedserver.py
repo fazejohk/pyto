@@ -25,7 +25,8 @@ while not quitting:
         if "Quit" in str(data):
             quitting = True
         if "Online" in str(data):
-            log.write("\n" + clients)
+            for client in clients:
+                s.sendto(str(addr), client)
 
         if addr not in clients:
             clients.append(addr)
