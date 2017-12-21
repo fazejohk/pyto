@@ -9,7 +9,6 @@ tLock = threading.Lock()
 shutdown = False
 
 def Admin():
-    global s
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.connect((host, port))
     s.setblocking(0)
@@ -23,16 +22,15 @@ def Admin():
     while message != 'q':
         if message != '':
             s.sendto(alias + ": " + message, server)
-            tLock.acquire()
-            message = raw_input(alias + "-> ")
-            tLock.release()
-            time.sleep(0.2)
+        tLock.acquire()
+        message = raw_input(alias + "-> ")
+        tLock.release()
+        time.sleep(0.2)
     if message == 'q':
         s.sendto("FAGGOT" + alias + ": " + "Left ", server)
         #tLock.acquire()
         #tLock.release()
 def Osku():
-    global s
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.connect((host, port))
     s.setblocking(0)
@@ -46,16 +44,15 @@ def Osku():
     while message != 'q':
         if message != '':
             s.sendto(alias + ": " + message, server)
-            tLock.acquire()
-            message = raw_input(alias + "-> ")
-            tLock.release()
-            time.sleep(0.2)
+        tLock.acquire()
+        message = raw_input(alias + "-> ")
+        tLock.release()
+        time.sleep(0.2)
     if message == 'q':
         s.sendto("FAGGOT" + alias + ": " + "Left ", server)
         #tLock.acquire()
         #tLock.release()
 def Vilske():
-    global s
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.connect((host, port))
     s.setblocking(0)
@@ -69,16 +66,15 @@ def Vilske():
     while message != 'q':
         if message != '':
             s.sendto(alias + ": " + message, server)
-            tLock.acquire()
-            message = raw_input(alias + "-> ")
-            tLock.release()
-            time.sleep(0.2)
+        tLock.acquire()
+        message = raw_input(alias + "-> ")
+        tLock.release()
+        time.sleep(0.2)
     if message == 'q':
         s.sendto("FAGGOT" + alias + ": " + "Left ", server)
         #tLock.acquire()
         #tLock.release()
 def Tuukka():
-    global s
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.connect((host, port))
     s.setblocking(0)
@@ -92,10 +88,10 @@ def Tuukka():
     while message != 'q':
         if message != '':
             s.sendto(alias + ": " + message, server)
-            tLock.acquire()
-            message = raw_input(alias + "-> ")
-            tLock.release()
-            time.sleep(0.2)
+        tLock.acquire()
+        message = raw_input(alias + "-> ")
+        tLock.release()
+        time.sleep(0.2)
     if message == 'q':
         s.sendto("FAGGOT" + alias + ": " + "Left ", server)
         #tLock.acquire()
