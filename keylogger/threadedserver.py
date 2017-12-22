@@ -3,7 +3,7 @@ import threading
 import time
 import os.path
 from random import randint
-
+#Goal is to make the server update the messages in real time to the clients:))))
 host = "192.168.10.36"
 port = 12345
 log = open("log.txt", "a+")
@@ -35,7 +35,7 @@ while not quitting:
         if "Log" in str(data):
             for client in clients:
                 s.sendto("Logging...", client)
-                log.write("\n" + str(addr))
+                log.write("\n" + time.ctime(time.time()) + "\n" + str(client))
                 s.sendto("Logging done", client)
 
         if addr not in clients:
