@@ -30,8 +30,13 @@ while not quitting:
                 s.sendto(str(addr) + str(clients), client)
         if "help" in str(data):
             for client in clients:
-                print "Commands: Online"
+                print "Displaying commands..."
                 s.sendto("Commands:\n Online=Shows all the people that are online\nq=Quits", client)
+        if "Log" in str(data):
+            for client in clients:
+                s.sendto("Logging...", client)
+                log.write("\n" + str(addr))
+                s.sendto("Logging done", client)
 
         if addr not in clients:
             clients.append(addr)
