@@ -1,7 +1,7 @@
 import socket
 import sys
 import time
-
+#Liitä file transfer chattiin ja tee gambling homma beta kansioon ja liitä se sitten chattiin
 name = time.strftime("%y-%m-%d-%H-%M-%S")
 
 s = socket.socket()
