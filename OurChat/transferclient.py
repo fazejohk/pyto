@@ -2,7 +2,7 @@ import socket
 import sys
 
 s = socket.socket()
-s.connect(("localhost",9999))
+s.connect(("192.168.10.36",9999))
 data = raw_input("File:\n")
 f = open (str(data), "rb")
 l = f.read(1024)

@@ -4,7 +4,7 @@ import socket
 import threading
 from passlib.hash import sha256_crypt
 
-#tee homma joka päivittää joka 5 minuutti ja näyttää kaikki jotka on onlines
+#internal currency
 tLock = threading.Lock()
 shutdown = False
 
@@ -39,7 +39,7 @@ def Osku():
     rT = threading.Thread(target=receiving, args=("RecvThread", s))
     rT.start()
 
-    alias = "Dr. MenBOB"
+    alias = "Dr.MenBOB"
     message = raw_input(alias + "-> ")
     while message != 'q':
         if message != '':

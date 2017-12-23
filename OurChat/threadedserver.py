@@ -3,7 +3,7 @@ import threading
 import time
 import os.path
 from random import randint
-#Goal is to make the server update the messages in real time to the clients:))))
+#File transfer
 host = "192.168.10.36"
 port = 12345
 log = open("log.txt", "a+")
