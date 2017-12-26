@@ -4,6 +4,7 @@ import time
 import os.path
 from random import randint
 #File transfer
+#Tee eka ingame currency
 host = "192.168.10.36"
 port = 12345
 log = open("log.txt", "a+")
