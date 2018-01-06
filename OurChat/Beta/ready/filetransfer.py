@@ -3,6 +3,7 @@ import socket
 import sys
 import time
 #Liitä file transfer chattiin ja tee gambling homma beta kansioon ja liitä se sitten chattiin
+
 try:
     name = time.strftime("%y-%m-%d-%H-%M-%S")
 
@@ -22,12 +23,13 @@ try:
                     f.write(l)
                     l = sc.recv(1024)
                     print "Got a file from: " + str(address)
-        f.close()
+                    f.close()
 
 
-        sc.close()
+                    sc.close()
 
-    s.close()
+                    s.close()
+                    sys.exit(0)
 except KeyboardInterrupt:
     f.close()
     sc.close()
