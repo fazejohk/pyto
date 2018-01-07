@@ -38,6 +38,12 @@ while not quitting:
                 s.sendto("Logging...", client)
                 log.write("\n" + time.ctime(time.time()) + "\n" + str(client))
                 s.sendto("Logging done", client)
+        if "trade" in str(data):
+            try:
+
+            except:
+                print "Something went wrong"
+                pass
 
         if addr not in clients:
             clients.append(addr)
@@ -45,7 +51,7 @@ while not quitting:
 
         print time.ctime(time.time()) + str(addr) + ": :" + str(data)
         for client in clients:
-            s.sendto(data, client)
+            s.sendto(time.ctime(time.time()) + "-> " + data, client)
     except:
         pass
 s.close()
