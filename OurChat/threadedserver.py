@@ -38,12 +38,6 @@ while not quitting:
                 s.sendto("Logging...", client)
                 log.write("\n" + time.ctime(time.time()) + "\n" + str(client))
                 s.sendto("Logging done", client)
-        if "trade" in str(data):
-            try:
-
-            except:
-                print "Something went wrong"
-                pass
 
         if addr not in clients:
             clients.append(addr)

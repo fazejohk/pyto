@@ -2,7 +2,9 @@
 import time
 import socket
 import threading
+import sys
 from passlib.hash import sha256_crypt
+import sys, termios, tty, os, time
 
 #internal currency
 tLock = threading.Lock()
@@ -18,18 +20,39 @@ def Admin():
     rT.start()
 
     alias = "Admin"
-    message = raw_input(alias + "-> ")
-    while message != 'q':
-        if message != '':
-            s.sendto(alias + ": " + message, server)
-        tLock.acquire()
-        message = raw_input(alias + "-> ")
-        tLock.release()
-        time.sleep(0.2)
-    if message == 'q':
-        s.sendto("FAGGOT" + alias + ": " + "Left ", server)
-        #tLock.acquire()
-        #tLock.release()
+    print("Yo You in bitch")
+    #getch saa § näppäimistöstä ja antaa mahdollisuuden lähettää viestin
+    #tämä mahdollistaa viestien automaattisen päivittymisen
+    def getch():
+        fd = sys.stdin.fileno()
+        old_settings = termios.tcgetattr(fd)
+        try:
+            tty.setraw(sys.stdin.fileno())
+            ch = sys.stdin.read(1)
+
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+        return ch
+
+    button_delay = 0.2
+    message = raw_input("ENTER")
+    while message != "q":
+        char = getch()
+
+        #Jos painat e:tä voit lähettää viestin
+        if (char == "e"):
+            print("No messages will show up while messaging")
+            message = raw_input(alias + "-> ")
+            if message != "" or " ":
+                s.sendto(alias + ": " + message, server)
+            tLock.acquire()
+
+            tLock.release()
+            time.sleep(0.2)
+
+    s.sendto("FAGGOT" + alias + ": " + "Left ", server)
+            #tLock.acquire()
+            #tLock.release()
 def Osku():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.connect((host, port))
@@ -96,7 +119,7 @@ def Tuukka():
         s.sendto("FAGGOT" + alias + ": " + "Left ", server)
         #tLock.acquire()
         #tLock.release()
-
+#Näyttää viestit
 def receiving(name, sock):
     while not shutdown:
         try:
@@ -117,7 +140,7 @@ hash = list[0].rstrip()
 hash1 = list[1].rstrip()
 hash2 = list[2].rstrip()
 hash3 = list[3].rstrip()
-print "Muista että sinun pitää päivittää viestit painamalla ENTER että näet onko tullut uusia viestejä\n"
+
 login = str(raw_input("LOGIN:\n"))
 
 if (sha256_crypt.verify(login, hash) == True):
